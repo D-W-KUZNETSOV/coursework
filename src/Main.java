@@ -16,12 +16,23 @@ public class Main {
 
     employees[2].setSalary(150000);
     employees[3].setDepartment(5);
+
     printEmployees();
+    System.out.println("=============");
     countSalarySumm();
+    System.out.println("countSalarySumm() = " + countSalarySumm());
+    System.out.println("==============");
     countMinSalary();
+    System.out.println("countMinSalary() = " + countMinSalary());
+    System.out.println("===============");
     countMaxSalary();
+    System.out.println("countMaxSalary() = " + countMaxSalary());
+    System.out.println("===============");
     countMediumSalary();
+    System.out.println("countMediumSalary() = " + countMediumSalary());
+    System.out.println("===============");
     FIO();
+
 
   }
 
@@ -31,45 +42,37 @@ public class Main {
     }
   }
 
-  public static void countSalarySumm() {
+  public static int countSalarySumm() {
     int sum = 0;
-    for (int i = 0; i < employees.length; i++) {
-      sum += employees[i].getSalary();
+    for (Employee employee : employees) {
+
+      sum += employee.getSalary();
     }
+    return sum;
   }
 
   public static Employee countMinSalary() {
-    int minSalary = employees[0].salary;
-    int index = 0;
-    for (int i = 0; i < employees.length; i++) {
-      if (employees[i].getSalary() < minSalary) {
-        minSalary = employees[i].getSalary();
-        index = i;
+    Employee min= employees[0];
+    for (Employee employee : employees) {
+      if (employee.getSalary() < min.getSalary()) {
+        min = employee;
       }
     }
-    return employees[index];
+    return min;
   }
 
-  private static Employee countMaxSalary() {
-    int maxSalary = employees[0].salary;
-    int index = 0;
-    for (int i = 0; i < employees.length; i++) {
-      if (employees[i].getSalary() > maxSalary) {
-        maxSalary = employees[i].getSalary();
-        index = i;
+  public static Employee countMaxSalary() {
+    Employee max = employees[0];
+    for (Employee employee:employees) {
+      if (employee.getSalary() > max.getSalary()) {
+        max = employee;
       }
     }
-    return employees[index];
+    return max;
   }
 
   public static int countMediumSalary() {
-    int sum = 0;
-    int medium;
-    for (int i = 0; i < employees.length; i++) {
-      sum += employees[i].getSalary();
-    }
-    medium = sum / employees.length;
-    return medium;
+    return countSalarySumm() / employees.length;
   }
 
   public static void FIO() {

@@ -2,17 +2,18 @@ import java.util.Objects;
 
 public class Employee {
 
-  public int salary;
+  private static int idGeneration=1;
+  private int salary;
   private final String fullName;
-  public int department;
-  public int id;
-  public static int count = 1;
+  private int department;
+  private int id;
+  private static int count = 1;
 
   public Employee(int department, String fullName, int salary) {
     this.fullName = fullName;
     this.salary = salary;
     this.department = department;
-    this.id = count++;
+    this.id = idGeneration++;
   }
 
   public String getFullName() {
