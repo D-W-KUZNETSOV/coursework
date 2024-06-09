@@ -6,7 +6,8 @@ public class Employee {
   private int salary;
   private final String fullName;
   private int department;
-  private int id;
+  private final int id;
+
 
   public Employee(int department, String fullName, int salary) {
     this.fullName = fullName;
@@ -36,12 +37,15 @@ public class Employee {
   }
 
   public int getId() {
-    return count;
+    return id;
   }
 
-  public void setId(int id) {
-    this.id = count;
+
+  public static int worksDepartment(int department) {
+
+    return department;
   }
+
 
   @Override
   public String toString() {

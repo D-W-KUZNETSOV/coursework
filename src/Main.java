@@ -1,85 +1,74 @@
 public class Main {
 
-  private static final Employee[] employees = new Employee[10];
+
 
   public static void main(String[] args) {
-    employees[0] = new Employee(1, "Иванов Иван Иванович", 50000);
-    employees[1] = new Employee(1, "Петров Сергей Семёнович", 100000);
-    employees[2] = new Employee(3, "Савельев Пётр Андреевич", 70000);
-    employees[3] = new Employee(2, "Кузьмин Артём Николаевич", 55000);
-    employees[4] = new Employee(3, "Зюзин Николай Петрович", 68000);
-    employees[5] = new Employee(4, "Подопригора Фёдор Анатольевич", 90000);
-    employees[6] = new Employee(2, "Смирнов Александр Андреевич", 65000);
-    employees[7] = new Employee(4, "Самойлов Филип Анатольевич", 87000);
-    employees[8] = new Employee(5, "Хуань Ли Цзы", 100000);
-    employees[9] = new Employee(5, "Хвостов Сидор Александрович", 88000);
 
-    employees[2].setSalary(150000);
-    employees[3].setDepartment(5);
+    EmployeeBook book = new EmployeeBook(10);
 
-    printEmployees();
+
+    book.addEmployee(new Employee(1, "Иванов Иван Иванович", 50000));
+    book.addEmployee(new Employee(1, "Петров Сергей Семёнович", 100000));
+    book.addEmployee(new Employee(3, "Савельев Пётр Андреевич", 70000));
+    book.addEmployee(new Employee(2, "Кузьмин Артём Николаевич", 55000));
+    book.addEmployee(new Employee(3, "Зюзин Николай Петрович", 68000));
+    book.addEmployee(new Employee(4, "Подопригора Фёдор Анатольевич", 90000));
+    book.addEmployee(new Employee(2, "Смирнов Александр Андреевич", 65000));
+    book.addEmployee(new Employee(4, "Самойлов Филип Анатольевич", 87000));
+    book.addEmployee(new Employee(5, "Хуань Ли Цзы", 100000));
+    book.addEmployee(new Employee(5, "Хвостов Сидор Александрович", 88000));
+
+
+
+
+
+
+    book.printEmployees();
     System.out.println("=============");
-    countSalarySumm();
-    System.out.println("countSalarySumm() = " + countSalarySumm());
+    book.countSalarySumm();
+    System.out.println("countSalarySumm() = " + book.countSalarySumm());
     System.out.println("==============");
-    countMinSalary();
-    System.out.println("countMinSalary() = " + countMinSalary());
+    book.countMinSalary();
+    System.out.println("countMinSalary() = " + book.countMinSalary());
     System.out.println("===============");
-    countMaxSalary();
-    System.out.println("countMaxSalary() = " + countMaxSalary());
+    book.countMaxSalary();
+    System.out.println("countMaxSalary() = " + book.countMaxSalary());
     System.out.println("===============");
-    countMediumSalary();
-    System.out.println("countMediumSalary() = " + countMediumSalary());
+    book.countMediumSalary();
+    System.out.println("countMediumSalary() = " + book.countMediumSalary());
     System.out.println("===============");
-    FIO();
+    book.FIO();
+    System.out.println("================");
+    book.printEmployees();
+    System.out.println("================");
+    book.increaseSalaryPrint(5);
+    System.out.println("=================");
+    book.printDeptFIO(2);
+    book.printDeptFIO(5);
+    System.out.println("==================");
+    book.lessThanNumber(50000);
+    System.out.println( "=================");
+    book.countDeptMaxSalary(3);
+    System.out.println(book.countDeptMaxSalary(3));
+    System.out.println("==================");
+    book.increaseDeptSalaryPrint(3,5);
+    System.out.println("==================");
+    System.out.println(book.countDeptMinSalary(5));
+    System.out.println("===================");
+    System.out.println(book.countDepMediumSalary(4));
+    System.out.println("====================");
+    book.moreThanNumber(100000);
+
 
 
   }
 
-  public static void printEmployees() {
-    for (Employee employee : employees) {
-      System.out.println("employee = " + employee);
-    }
-  }
 
-  public static int countSalarySumm() {
-    int sum = 0;
-    for (Employee employee : employees) {
 
-      sum += employee.getSalary();
-    }
-    return sum;
-  }
-
-  public static Employee countMinSalary() {
-    Employee min= employees[0];
-    for (Employee employee : employees) {
-      if (employee.getSalary() < min.getSalary()) {
-        min = employee;
-      }
-    }
-    return min;
-  }
-
-  public static Employee countMaxSalary() {
-    Employee max = employees[0];
-    for (Employee employee:employees) {
-      if (employee.getSalary() > max.getSalary()) {
-        max = employee;
-      }
-    }
-    return max;
-  }
-
-  public static int countMediumSalary() {
-    return countSalarySumm() / employees.length;
-  }
-
-  public static void FIO() {
-    for (int i = 0; i < employees.length; i++) {
-      System.out.println("employees[i].getFullName() = " + employees[i].getFullName());
-
-    }
-  }
 
 }
+
+
+
+
+
