@@ -4,7 +4,7 @@ public class Main {
 
   public static void main(String[] args) {
 
-    EmployeeBook book = new EmployeeBook(10);
+    EmployeeBook book = new EmployeeBook();
 
 
     book.addEmployee(new Employee(1, "Иванов Иван Иванович", 50000));
